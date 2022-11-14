@@ -20,7 +20,15 @@ $pdo = new PDO($dsn, 'root', '');
     <table>
       <tr>
         <td>school_num</td>
-        <td><input type="text" name="school_num"></td>
+        <?php
+        $sql = "SELECT max(`school_num`) FROM `students`";
+        $max=$pdo -> query($sql) ->fetchColumn();
+        
+
+        ?>
+        <td>
+          <?=$max+1;?><input type="hidden" name="school_num" value="<?=$max+1;?>" readonly style="border: none">
+        </td>
       </tr>
       <tr>
         <td>name</td>
@@ -63,19 +71,51 @@ $pdo = new PDO($dsn, 'root', '');
       </tr>
       <tr>
         <td>graduate_at</td>
-        <td><input type="number" name="fraduate_at"></td>
+        <td>
+          <select name="graduate_at">
+
+            <?php
+            $sql = "SELECT * FROM `graduate_school`";
+            $grads = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($grads as $grad) {
+              echo "<option value='{$grad['id']}'>{$grad['county']}{$grad['name']}</option>";
+            }
+
+            ?>
+          </select>
+        </td>
       </tr>
       <tr>
         <td>status_code</td>
-        <td><input type="text" name="status_code"></td>
+        <td>
+          <select name="status_code">
+
+            <?php
+            $sql = "SELECT * FROM `status`";
+            $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row) {
+              echo "<option value='{$row['code']}'> {$row['status']}</option>";
+            }
+
+            ?>
+          </select>
+        </td>
       </tr>
       <tr>
         <td>班級</td>
-        <td><input type="text" name="classes"></td>
-      </tr>
-      <tr>
-        <td>座號</td>
-        <td><input type="number" name="seat_num"></td>
+        <td>
+          <select name="classes">
+
+            <?php
+            $sql = "SELECT `id`,`name` FROM `classes`";
+            $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $row) {
+              echo "<option value='{$row['code']}'> {$row['name']}</option>";
+            }
+
+            ?>
+          </select>
+        </td>
       </tr>
     </table>
     <input type="submit" value="確認新增">
