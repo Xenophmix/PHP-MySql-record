@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 5px;
     box-sizing: border-box;
 }
 h1{
@@ -8,6 +8,7 @@ h1{
 }
 .list-students{
     border-collapse: collapse;
+    margin: auto;
 }
 .list-students td{
     border: 1px solid #aaa;
@@ -15,5 +16,12 @@ h1{
     text-align: center;
 }
 .list-students td:nth-last-child(1){
-    text-align: right;
+    text-align: center;
+}
+nav{
+    text-align: center;
+}
+nav a{
+    display: inline-block;
+    padding: 5px 10px;
 }
