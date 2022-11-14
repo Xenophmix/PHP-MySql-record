@@ -13,4 +13,4 @@ $sql="INSERT INTO `students`
 
 
 $res=$pdo ->exec($sql);
-echo "刪除成功:".$res;
+echo "新增成功:".$res;
