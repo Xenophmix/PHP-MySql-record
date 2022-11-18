@@ -47,27 +47,26 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <td>畢業國中</td>
             <td>年齡</td>
             <td>操作</td>
-        </tr>
-        <?php
-        foreach ($rows as $row) {
+            </tr>
+            <?php
+            foreach ($rows as $row) {
 
-            $age = floor((strtotime('now') - strtotime($row['birthday'])) / (60 * 60 * 24 * 365));
+                $age = floor((strtotime('now') - strtotime($row['birthday'])) / (60 * 60 * 24 * 365));
 
-            echo "<tr>";
-            echo "<td>{$row['school_num']}&nbsp;</td>";
-            echo "<td>{$row['name']}</td>";
-            echo "<td>{$row['uni_id']}</td>";
-            echo "<td>{$row['birthday']}</td>";
-            echo "<td>{$row['graduate_at']}</td>";
-            echo "<td>&nbsp$age</td>";
-            echo "<td>";
-            echo "<a href='edit.php?id={$row['id']}'>編輯</a>";
-            echo "<a href='del.php?id={$row['id']}'>刪除</a>";
-            echo "</td>";
-            echo "</tr>";
-
-        }
-        ?>
+                echo "<tr>";
+                echo "<td>{$row['school_num']}&nbsp;</td>";
+                echo "<td>{$row['name']}</td>";
+                echo "<td>{$row['uni_id']}</td>";
+                echo "<td>{$row['birthday']}</td>";
+                echo "<td>{$row['graduate_at']}</td>";
+                echo "<td>&nbsp$age</td>";
+                echo "<td>";
+                echo "<a href='edit.php?id={$row['id']}'>編輯</a>";
+                echo "<a href='del.php?id={$row['id']}'>刪除</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+            ?>
     </table>
 
 
