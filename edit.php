@@ -110,7 +110,7 @@ $pdo = new PDO($dsn, 'root', '');
       <tr>
         <td>班級</td>
         <td>
-          <select name="class_code" onchange="upadte.php">
+          <select name="class_code">
             <?php
             $stu_class = $pdo
               ->query("SELECT * FROM `class_student` WHERE `school_num` ='{$student['school_num']}' ")
