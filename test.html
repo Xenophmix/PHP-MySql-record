@@ -1,0 +1,35 @@
+<html>
+  
+<head>
+    <title>
+        How to get array structure 
+        with alert() in JavaScript?
+    </title>
+</head>
+  
+<body style="text-align:center;" id="body">
+    <h1 style="color:green;"> 
+            GeeksForGeeks 
+    </h1>
+    
+    <p id="GFG_UP" style="font-size: 15px; font-weight: bold;">
+    </p>
+    
+    <button onclick="gfg_Run()">
+        Click here
+    </button>
+    
+    <script>
+        var el_up = document.getElementById("GFG_UP");
+        var arr = [1, 2, 4, 6, 9];
+        el_up.innerHTML = 
+"Click on the button to see the array structure using Alert().<br> Array is = "
+        + arr;
+  
+        function gfg_Run() {
+            alert(arr);
+        }
+    </script>
+</body>
+  
+</html>
