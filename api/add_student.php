@@ -46,10 +46,10 @@ echo $sql_class;
 $res1 = $pdo->exec($sql);
 $res2 = $pdo->exec($sql_class);
 // echo "新增成功:".$res;
-if($res1 && $res2){
-  $status='add_success';
-}else{
-  $status='add_fail';
+if ($res1 && $res2) {
+  $status = 'add_success';
+} else {
+  $status = 'add_fail';
 }
 
-header("location:../index.php?status=$status");
+header("location:../admin_center.php?status=$status");

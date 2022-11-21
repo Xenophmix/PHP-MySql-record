@@ -1,12 +1,21 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    color: white;
     font-family: 'Noto Sans TC', sans-serif;
 }
 
 body {
-    background-color: floralwhite;
+    /* fallback for old browsers */
+    background: #6a11cb;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
+
 
 h1 {
     text-align: center;
@@ -161,7 +170,8 @@ nav ul.class-list li a {
     border: 0px solid #eee;
     box-shadow: initial;
 }
-.del-msg{
+
+.del-msg {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -169,18 +179,27 @@ nav ul.class-list li a {
     background-color: lightgreen;
     margin-top: 20px;
 
-     animation:signup-response 4s 1;
-    -webkit-animation:signup-response 4s 1;
+    animation: signup-response 4s 1;
+    -webkit-animation: signup-response 4s 1;
     animation-fill-mode: forwards;
 
-    animation-delay:2s;
-    -webkit-animation-delay:1s; /* Safari and Chrome */
+    animation-delay: 2s;
+    -webkit-animation-delay: 1s;
+    /* Safari and Chrome */
     -webkit-animation-fill-mode: forwards;
 
-} 
+}
 
-@keyframes signup-response{
-    0% {opacity :1;}
-    80%{opacity: 1;}
-    100%{opacity :0;}
+@keyframes signup-response {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

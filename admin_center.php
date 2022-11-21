@@ -69,8 +69,8 @@
 <body>
     <?php
     if (isset($_GET['del'])) {
-        $name=$pdo->query("SELECT `name` FROM `students` WHERE `id` = '{$_GET['del']}'")
-                  ->fetchColumn();
+        $name = $pdo->query("SELECT `name` FROM `students` WHERE `id` = '{$_GET['del']}'")
+            ->fetchColumn();
         echo "<div class='del-msg'>";
         echo $_GET['del'];
         echo "</div>";
@@ -247,7 +247,7 @@
         }
         ?>
     </table>
-    
+
     <?php
     if (isset($_GET['page']) && !isset($_GET['code'])) {
     ?>
@@ -275,11 +275,8 @@
         }
     </script> -->
     <script>
-
         var elems = document.getElementsByClassName('AUS');
-        // var me = $student['name'];
-        // var quest = "你真的確定要刪除"+ $me +"嗎?";
-         var quest = "你真的確定要刪除嗎?";
+        var quest = "你確定要刪除嗎?";
         var confirmIt = function(stopall) {
             if (!confirm(quest)) stopall.preventDefault();
         };

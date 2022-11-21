@@ -32,7 +32,7 @@ $sql_students = "UPDATE `students`
 $class_code = $_POST['class_code'];
 
 $school_num =
-  $pdo 
+  $pdo
   ->query("SELECT * FROM `students` WHERE `id` = '$id'")
   ->fetch(PDO::FETCH_ASSOC);
 
@@ -56,6 +56,6 @@ echo "<br>";
 $res1 = $pdo->exec($sql_students);
 $res2 = $pdo->exec($sql_class_student);
 echo "編輯成功:" . $res;
-header("location:../index.php?status=$status");
+header("location:../admin_center.php?status=$status");
 //$pdo->query($sql);
 // $res = $pdo->exec($sql);
