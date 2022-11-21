@@ -12,12 +12,19 @@ echo "<br>";
 echo $sql_student;
 echo "<br>";
 
-// $res_class=$pdo->exec($sql_class);
-// $res_student=$pdo->exec($sql_student);
-// echo $res_class;
-// echo "<br>";
-// echo $res_student;
-// echo "刪除成功:";
 
-// header("location:../index.php");
+if(isset($_GET['code'])){
+  $url="location:../index.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}&code={$_GET['code']}";
+}else{
+  $url="location:../index.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}";
+}
+// header($url);
+$res_class=$pdo->exec($sql_class);
+$res_student=$pdo->exec($sql_student);
+echo $res_class;
+echo "<br>";
+echo $res_student;
+echo "刪除成功:";
+
+header($url);
 //

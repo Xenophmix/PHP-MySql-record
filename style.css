@@ -1,8 +1,11 @@
 * {
     margin: 0;
-    padding: 5px;
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    background-color: floralwhite;
 }
 
 h1 {
@@ -70,4 +73,91 @@ nav ul.class-list li a {
     color: white;
     font-weight: bolder;
     text-decoration: underline;
+}
+
+.pages {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: auto;
+    align-items: center;
+    padding: 5px;
+}
+
+.pages a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 5px #ccc;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+
+}
+
+.BackHome1 {
+    text-align: center;
+    display: none;
+}
+
+.BackHome1>a {
+    padding: 3px;
+    font-size: 50px;
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+.BackHome2 {
+    text-align: center;
+}
+
+/* .BackHome2>a {
+    background: url(./img/pride-rainbow.gif);
+    padding: 3px;
+    font-size: 50px;
+    text-decoration: none; */
+/* background-clip: text; */
+/* -webkit-background-clip: text; */
+/* color: transparent; */
+/* border: 5px dashed black; */
+/* } */
+
+.BackHome2>a {
+    font-family: 'Kumar One Outline', cursive;
+    font-size: 40px;
+    text-shadow:
+        0 0 5px rgba(255, 65, 65, 1),
+        0 0 10px rgba(255, 65, 65, 1),
+        0 0 20px rgba(255, 65, 65, 1),
+        0 0 40px rgba(255, 65, 65, 1);
+    animation: neon-shine 2s 1s linear infinite;
+}
+
+@keyframes neon-shine {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        color: #232323;
+    }
+}
+
+.now {
+    background-color: yellowgreen;
+    font-size: larger;
+    color: deeppink;
+}
+
+.pages a.noshow {
+    border: 0px solid #eee;
+    box-shadow: initial;
 }
