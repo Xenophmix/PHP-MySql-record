@@ -22,6 +22,7 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
   }
+  
 </style>
 
 <body>
@@ -60,6 +61,10 @@
 
                   <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">忘記密碼?</a></p>
 
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                   <input class="btn btn-outline-light btn-lg px-5" type="submit" value="登入">
 
                   <div class="d-flex justify-content-center text-center mt-4 pt-1">

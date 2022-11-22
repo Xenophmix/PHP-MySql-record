@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login'])){
+if (!isset($_SESSION['login'])) {
     header("location:index.php");
     exit();
 }
@@ -231,11 +231,12 @@ if(!isset($_SESSION['login'])){
         </tr>
         <?php
         foreach ($rows as $row) {
-
             if (isset($_GET['code'])) {
-                $url = "<a class='AUS' href=api/del_student.php?id={$row['id']}&page={$now}&code={$_GET['code']}>刪除</a>";
+                // onclick=\"return confirm('Are you sure you want to delete {$row['姓名']} item?');\" 
+                // 直接放在裡面就不用浪費時間了
+                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now}&code={$_GET['code']} onclick=\"return delsure(this)\">刪除</a>";
             } else {
-                $url = "<a class='AUS' href=api/del_student.php?id={$row['id']}&page={$now}>刪除</a>";
+                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now} onclick=\"return delsure(this)\" >刪除</a>";
             }
             $age = floor((strtotime('now') - strtotime($row['生日'])) / (60 * 60 * 24 * 365));
 
@@ -266,23 +267,24 @@ if(!isset($_SESSION['login'])){
     <?php
     };
     ?>
+    <script>
+        function delsure(Number) {
+            // const GetName = document.querySelector('main').getElementsByTagName('div')[1].textContent;
 
+            var parentElem = Number.parentElement.parentElement.children[1].textContent;
+            // var parentElem1 = parentElem.parentElement;
+            var quest = "你確定要刪除" + parentElem + "嗎?";
+            if (confirm(quest)) {
 
-
-
-    <!-- <script>
-        function del_sure() {
-            var aus = confirm("你真的確定要刪除嗎?");
-            if (aus == true) {
-                location.href = "./api/del_student.php?id=del_sure()}"
             } else {
-                location.href = "index.php"
-
+                return false
             }
         }
-    </script> -->
+    </script>
     <script>
         var elems = document.getElementsByClassName('AUS');
+        var targetName = document.getElementsByClassName('AUS')
+        var parentElem = elems.parentElement.parentElement.children[1].textContent;
         var quest = "你確定要刪除嗎?";
         var confirmIt = function(stopall) {
             if (!confirm(quest)) stopall.preventDefault();
