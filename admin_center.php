@@ -89,7 +89,7 @@ if (!isset($_SESSION['login'])) {
     <nav>
         <a href="add.php">新增學生</a>
         <a href="reg.php">教師註冊</a>
-        <a href="login.php">教師登入</a>
+        <a href="logout.php">教師登出</a>
     </nav>
     <nav>
         <ul class="class-list">
@@ -234,9 +234,9 @@ if (!isset($_SESSION['login'])) {
             if (isset($_GET['code'])) {
                 // onclick=\"return confirm('Are you sure you want to delete {$row['姓名']} item?');\" 
                 // 直接放在裡面就不用浪費時間了
-                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now}&code={$_GET['code']} onclick=\"return delsure(this)\">刪除</a>";
+                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now}&code={$_GET['code']} onclick=\"return confirm('Are you sure you want to delete {$row['姓名']} item?');\">刪除</a>";
             } else {
-                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now} onclick=\"return delsure(this)\" >刪除</a>";
+                $url = "<a href=api/del_student.php?id={$row['id']}&page={$now} onclick=\"return confirm('Are you sure you want to delete {$row['姓名']} item?');\" >刪除</a>";
             }
             $age = floor((strtotime('now') - strtotime($row['生日'])) / (60 * 60 * 24 * 365));
 
