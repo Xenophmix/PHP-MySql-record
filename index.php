@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="style.css">
   <?php
   //使用PDO方式建立資料庫連線物件
-  $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
-  $pdo = new PDO($dsn, 'root', '');
+  include "./db/base.php";
+
 
   if (isset($_GET['code'])) {
     // code 班級 假設是101班 就顯示101班所有人的資料 無限制LIMIT
@@ -67,6 +67,9 @@
   ?>
 
 <body>
+  <?php
+  include_once "./layouts/header.php";
+  ?>
   <h1>學生管理系統</h1>
   <nav>
     <a href="reg.php">教師註冊</a>

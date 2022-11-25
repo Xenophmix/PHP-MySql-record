@@ -25,10 +25,11 @@ h1 {
 .list-students {
     border-collapse: collapse;
     margin: auto;
+    width: 920px;
 }
 
 .list-students td {
-    border: 1px solid #aaa;
+    /* border: 1px solid #aaa; */
     padding: 5px 10px;
     text-align: center;
 }
@@ -66,6 +67,7 @@ td a:hover {
     list-style-type: none;
     margin: 5px 0;
     justify-content: center;
+    padding: 0;
 }
 
 nav ul.class-list li a {
@@ -202,4 +204,35 @@ nav ul.class-list li a {
     100% {
         opacity: 0;
     }
+}
+
+header {
+    padding: 1rem;
+    box-shadow: 0 0 10px #ccc;
+    /* margin-bottom: 1.5rem; */
+}
+
+header .nav {
+    width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+tr:first-child td:first-child {
+    border-top-left-radius: 10px;
+}
+
+/*第一欄最後列：左下*/
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+/*最後欄第一列：右上*/
+tr:first-child td:last-child {
+    border-top-right-radius: 10px;
+}
+
+/*最後欄第一列：右下*/
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
 }

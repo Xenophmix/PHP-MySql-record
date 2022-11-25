@@ -4,6 +4,7 @@ if (!isset($_SESSION['login'])) {
     header("location:index.php");
     exit();
 }
+include "./db/base.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +24,7 @@ if (!isset($_SESSION['login'])) {
     <title>學生管理系統</title>
     <link rel="stylesheet" href="style.css">
     <?php
-    //使用PDO方式建立資料庫連線物件
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
-    $pdo = new PDO($dsn, 'root', '');
+
 
     if (isset($_GET['code'])) {
         // code 班級 假設是101班 就顯示101班所有人的資料 無限制LIMIT
@@ -54,6 +53,8 @@ if (!isset($_SESSION['login'])) {
         $sql_total = "SELECT count(`students`.`id`)
         FROM `students`";
     }
+
+    include_once "./layouts/header.php";
 
     $div = 15;
     $total = $pdo->query($sql_total)->fetchColumn();

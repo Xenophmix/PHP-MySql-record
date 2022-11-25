@@ -1,8 +1,7 @@
 <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=school";
-$pdo=new PDO($dsn,'root','');
 
 session_start();
+include "../db/base.php";
 
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
@@ -24,4 +23,3 @@ if($chk==1){
     }
     header("location:../login.php?error=login");
 }
-?>
