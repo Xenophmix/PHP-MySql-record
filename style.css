@@ -238,3 +238,7 @@ tr:first-child td:last-child {
 tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
+td input,
+td select{
+    color: black;
+}

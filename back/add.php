@@ -134,7 +134,7 @@ include "./db/base.php";
                 </td>
             </tr>
         </table>
-        <input type="submit" value="確認新增">
+        <input style="color: black;" type="submit" value="確認新增">
     </form>
 </body>
 
