@@ -20,4 +20,4 @@ echo "<br>";
 echo "email =>" . $email;
 echo "<br>";
 $pdo->exec($sql);
-header("location:../login.php");
+header("location:../front/login.php");

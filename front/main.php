@@ -1,4 +1,5 @@
 <?php
+include "./layouts/class_nav.php";
 if (isset($_GET['code'])) {
   // code 班級 假設是101班 就顯示101班所有人的資料 無限制LIMIT
   $sql = "SELECT `students`.`id`,
@@ -186,3 +187,14 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   }
   ?>
 </table>
+<?php
+if (isset($_GET['page']) && !isset($_GET['code']) || !isset($_GET['page']) && !isset($_GET['code'])) {
+?>
+  <div class="BackHome1"><a href="<?= '?page=1' ?>">BACKALL</a></div>
+<?php
+} else {;
+?>
+  <div class="BackHome2"><a href="<?= '?page=1' ?>">BACKALL</a></div>
+<?php
+};
+?>

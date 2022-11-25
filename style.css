@@ -50,8 +50,10 @@ nav {
     text-align: center;
 }
 
+div a,
 nav a,
 td a {
+    color: white !important;
     display: inline-block;
     padding: 1px 10px;
     text-decoration: none;
@@ -212,7 +214,7 @@ header {
     /* margin-bottom: 1.5rem; */
 }
 
-header .nav {
+header .myHeader {
     width: 800px;
     margin: auto;
     text-align: center;

@@ -4,6 +4,9 @@ if (!isset($_SESSION['login'])) {
     header("location:index.php");
     exit();
 }
+?>
+<?php
+//使用PDO方式建立資料庫連線物件
 include "./db/base.php";
 ?>
 <!DOCTYPE html>
@@ -26,28 +29,20 @@ include "./db/base.php";
 
 <body>
     <?php
-    if (isset($_GET['del'])) {
-        $name = $pdo->query("SELECT `name` FROM `students` WHERE `id` = '{$_GET['del']}'")
-            ->fetchColumn();
-        echo "<div class='del-msg'>";
-        echo $_GET['del'];
-        echo "</div>";
-    }
-
+    $do = $_GET['do'] ?? 'main';
     include_once "./layouts/header.php";
-
     ?>
     <h1>學生管理系統</h1>
-    <nav>
-        <a href="add.php">新增學生</a>
-        <a href="reg.php">教師註冊</a>
-        <a href="logout.php">教師登出</a>
-    </nav>
     <?php
-    include "./layouts/class_nav.php"
-    ?>
-    <?php
-    include "./back/main.php"
+
+    $file = './back/'.$do.".php";
+    if(file_exists($file)){
+        include $file;
+    }else{
+        include "./back/main.php";
+    }
+
+
     ?>
     <!-- <script>
         function delsure(Number) {

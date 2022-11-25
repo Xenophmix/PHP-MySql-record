@@ -1,4 +1,5 @@
 <?php
+include "./layouts/class_nav.php";
 if (isset($_GET['code'])) {
   // code 班級 假設是101班 就顯示101班所有人的資料 無限制LIMIT
   $sql = "SELECT `students`.`id`,
@@ -51,7 +52,8 @@ if (isset($_GET['del'])) {
     ->fetchColumn();
   echo "<div class='del-msg'>";
   echo $_GET['del'];
-  echo "</div>";
+  echo
+  "</div>";
 }
 
 
