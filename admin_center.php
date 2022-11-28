@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+include "./db/base.php";
 if (!isset($_SESSION['login'])) {
     header("location:index.php");
     exit();
@@ -7,7 +8,6 @@ if (!isset($_SESSION['login'])) {
 ?>
 <?php
 //使用PDO方式建立資料庫連線物件
-include "./db/base.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

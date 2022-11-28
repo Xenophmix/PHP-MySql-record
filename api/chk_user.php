@@ -1,7 +1,7 @@
 <?php
+include "../db/base.php";
 
 session_start();
-include "../db/base.php";
 
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
@@ -21,5 +21,8 @@ if($chk==1){
     }else{
         $_SESSION['login_try']=1;
     }
-    header("location:../login.php?error=login");
+
+    //如果帳號或密碼有錯，則將使用者導向登入頁，並帶上錯誤值
+    header("location:../index.php?do=login&error=login");
 }
+?>

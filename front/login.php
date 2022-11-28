@@ -36,7 +36,6 @@
 
                   <h2 class="fw-bold mb-2 text-uppercase">教師登入</h2>
                     <?php
-                    session_start();
 
                     if (isset($_GET['error'])) {
                       echo "帳號或密碼錯誤，";
