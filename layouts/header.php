@@ -15,6 +15,7 @@
                     ?>
                 <nav>
                     <?php
+                    echo "<a href='index.php'>回首頁</a>";
                     echo "<a href='admin_center.php?do=news'>管理新聞</a>";
                     echo "<a href='admin_center.php?do=students_list'>學生列表</a>";
                     echo "<a href='admin_center.php?do=add'>新增學生</a>";
@@ -26,10 +27,11 @@
             ?>
                 <nav>
                     <?php
-                    echo "你沒有登入";
+                    echo "<a href='index.php'>回首頁</a>";
                     echo "<a href='index.php?do=students_list'>學生列表</a>";
                     echo "<a href='index.php?do=reg'>教師註冊</a>";
                     echo "<a href='index.php?do=login'>教師登入</a>";
+                    echo "&nbsp;&nbsp;&nbsp;你沒有登入!";
                     ?>
                 </nav>
                 <?php

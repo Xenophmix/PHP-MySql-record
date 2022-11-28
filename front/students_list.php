@@ -1,3 +1,4 @@
+<h1>學生管理系統</h1>
 <?php
 include "./layouts/class_nav.php";
 if (isset($_GET['code'])) {

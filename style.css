@@ -240,6 +240,7 @@ tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 td input,
-td select{
+td select,
+select option{
     color: black;
 }
