@@ -14,8 +14,8 @@
     foreach ($rows as $row) {
       echo "<li class='list-group-item list-group-item-action d-flex'>";
       echo "<div class='col-md-10 text-center'>";
-      echo ($row['top']==1)?"top!!!":'';
-      echo ($row['id']==$hot)?"hot!!!":'';
+      echo ($row['top']==1)?"top!!!&nbsp;&nbsp;&nbsp;":'';
+      echo ($row['id']==$hot)?"hot!!!&nbsp;&nbsp;&nbsp;":'';
       echo "<a class='text-dark' href='index.php?do=news_detail&id={$row['id']}'>";
       echo $row['subject'];
       echo "</a>";

@@ -52,7 +52,7 @@ nav {
     text-align: center;
 }
 
-li a,
+nav li a,
 nav a,
 td a {
     color: white !important;
