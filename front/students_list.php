@@ -52,12 +52,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   if (($now - 1) >= 1) {
     $prev = $now - 1;
     if (isset($_GET['code'])) {
-      echo "<a href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
+      echo "<a style='color:white;' href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
       echo "&lt; ";
       echo " </a>";
     } else {
 
-      echo "<a href='?do=students_list&page=$prev'> ";
+      echo "<a style='color:white;' href='?do=students_list&page=$prev'> ";
       echo "&lt; ";
       echo " </a>";
     }
@@ -71,12 +71,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     //顯示第一頁
     if ($now >= 4) {
       if (isset($_GET['code'])) {
-        echo "<a href='?do=students_list&page=1&code={$_GET['code']}'> ";
+        echo "<a style='color:white;' href='?do=students_list&page=1&code={$_GET['code']}'> ";
         echo "1 ";
         echo " </a>...";
       } else {
 
-        echo "<a href='?do=students_list&page=1'> ";
+        echo "<a style='color:white;' href='?do=students_list&page=1'> ";
         echo "1 ";
         echo " </a>...";
       }
@@ -97,11 +97,11 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     for ($i = $startPage; $i <= ($startPage + 4); $i++) {
       $nowPage = ($i == $now) ? 'now' : '';
       if (isset($_GET['code'])) {
-        echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage'> ";
+        echo "<a style='color:white;' href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage'> ";
         echo $i;
         echo " </a>";
       } else {
-        echo "<a href='?do=students_list&page=$i' class='$nowPage'> ";
+        echo "<a style='color:white;' href='?do=students_list&page=$i' class='$nowPage'> ";
         echo $i;
         echo " </a>";
       }
@@ -128,12 +128,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     //顯示第最後一頁
     if ($now <= ($pages - 3)) {
       if (isset($_GET['code'])) {
-        echo "...<a href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
+        echo "...<a style='color:white;' href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
         echo "$pages";
         echo " </a>";
       } else {
 
-        echo "...<a href='?do=students_list&page=$pages'> ";
+        echo "...<a style='color:white;' href='?do=students_list&page=$pages'> ";
         echo "$pages";
         echo " </a>";
       }
@@ -146,12 +146,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   if (($now + 1) <= $pages) {
     $next = $now + 1;
     if (isset($_GET['code'])) {
-      echo "<a href='?do=students_list&page=$next&code={$_GET['code']}'> ";
+      echo "<a style='color:white;' href='?do=students_list&page=$next&code={$_GET['code']}'> ";
       //echo "< ";
       echo "&gt; ";
       echo " </a>";
     } else {
-      echo "<a href='?do=students_list&page=$next'> ";
+      echo "<a style='color:white;' href='?do=students_list&page=$next'> ";
       //echo " >";
       echo "&gt; ";
       echo " </a>";

@@ -5,11 +5,13 @@ $all_news="SELECT * FROM `news` ";
 $rows=$pdo->query($all_news)->fetchAll();
 
 foreach($rows as $row){
+    echo "<div class='container'>";
     echo "<li class='list-group-item list-group-item-action d-flex'>";
-    echo "<a href='index.php?do=news_detail&id={$row['id']}'>";
+    echo "<a class='text-primary' href='index.php?do=news_detail&id={$row['id']}'>";
     echo $row['subject'];
     echo "</a>";
     echo "</li>";
+    echo "</div>";
 }
 
 ?>

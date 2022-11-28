@@ -1,7 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    color: white;
+    /* color: white; */
     font-family: 'Noto Sans TC', sans-serif;
 }
 
@@ -51,7 +51,7 @@ nav {
     text-align: center;
 }
 
-div a,
+li a,
 nav a,
 td a {
     color: white !important;
