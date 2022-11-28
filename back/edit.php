@@ -130,7 +130,7 @@ include "./db/base.php";
         </tr>
     </table>
     <input type="hidden" name="id" value="<?=$student['id'];?>">
-    <input type="submit" value="確認修改">
+    <input style="color: black;" type="submit" value="確認修改">
   </form>
 </body>
 

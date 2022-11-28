@@ -31,15 +31,16 @@ if (isset($_GET['code'])) {
 
 $div = 15;
 $total = $pdo->query($sql_total)->fetchColumn();
-echo "總筆數為:" . $total;
+// echo "總筆數為:" . $total;
 $pages = ceil($total / $div);
-echo "總頁數為:" . $pages;
+// echo "總頁數為:" . $pages;
 $now = (isset($_GET['page'])) ? $_GET['page'] : 1;
-echo "當前頁為:" . $now;
+// echo "當前頁為:" . $now;
 $start = ($now - 1) * $div;
-
 $sql = $sql . " LIMIT $start,$div";
-
+?>
+<div style="text-align: center;">總筆數為:<?=$total?>，總頁數為:<?=$pages?>，當前頁為:<?=$now?></div>
+<?php
 
 
 //執行SQL語法，並從資料庫取回全部符合的資料，加上PDO::FETCH_ASSOC表示只需回傳帶有欄位名的資料
@@ -113,31 +114,50 @@ if (isset($_GET['status'])) {
     <?php
     // 頁碼區
     // 只顯示前後四個頁碼
-    if ($now >= 3 && $now <= ($pages - 2)) {
+    if ($now > 3 && $now <= ($pages - 2)) {
       $startPage = $now - 2;
     } else if ($now - 2 < 3) {
       $startPage = 1;
     } else {
       $startPage = $pages - 4;
     }
-    for ($i = $startPage; $i <= ($startPage + 4); $i++) {
-      $nowPage = ($i == $now) ? 'now' : '';
-      if (isset($_GET['code'])) {
-        echo "<a href='?page=$i&code={$_GET['code']}' class='$nowPage'> ";
-        echo $i;
-        echo " </a>";
-      } else {
 
-        echo "<a href='?page=$i' class='$nowPage'> ";
-        echo $i;
-        echo " </a>";
+
+    if ($pages < 5) {
+      for ($i = 1; $i <= $pages; $i++) {
+        $nowPage = ($i == $now) ? 'now' : '';
+        if (isset($_GET['code'])) {
+          echo "<a href='?page=$i&code={$_GET['code']}' class='$nowPage'> ";
+          echo $i;
+          echo " </a>";
+        } else {
+
+          echo "<a href='?page=$i' class='$nowPage'> ";
+          echo $i;
+          echo " </a>";
+        }
+      }
+    } else {
+
+      for ($i = $startPage; $i <= ($startPage + 4); $i++) {
+        $nowPage = ($i == $now) ? 'now' : '';
+        if (isset($_GET['code'])) {
+          echo "<a href='?page=$i&code={$_GET['code']}' class='$nowPage'> ";
+          echo $i;
+          echo " </a>";
+        } else {
+
+          echo "<a href='?page=$i' class='$nowPage'> ";
+          echo $i;
+          echo " </a>";
+        }
       }
     }
 
     ?>
     <?php
     //顯示最後一頁
-    if ($now <= ($pages - 3)) {
+    if ($now < ($pages - 3)) {
       if (isset($_GET['code'])) {
         echo "...<a href='?page=$pages&code={$_GET['code']}'> ";
         echo "$pages";
@@ -205,7 +225,7 @@ if (isset($_GET['status'])) {
     echo "<td>{$row['畢業國中']}</td>";
     echo "<td>&nbsp$age</td>";
     echo "<td>";
-    echo "<a href='edit.php?id={$row['id']}'>編輯</a>";
+    echo "<a href='admin_center.php?id={$row['id']}&do=edit'>編輯</a>";
     echo  $url;
     echo "</td>";
     echo "</tr>";

@@ -1,21 +1,25 @@
 <header>
     <div class="myHeader">
         <?php
-        if (($do == 'login') || ($do == 'reg')) {
-            echo "<a href='index.php'>回首頁</a>";
-        } else {
+        if($do == 'add' || $do == 'edit'){
+            echo "<a href='admin_center.php'>回首頁</a>";
+        }else{
 
-            if (isset($_SESSION['login'])) {
-                echo "歡迎您!&nbsp";
-                echo $_SESSION['login']['name'];
-        ?>
+            if (($do == 'login') || ($do == 'reg')) {
+                echo "<a href='index.php'>回首頁</a>";
+            } else {
+                
+                if (isset($_SESSION['login'])) {
+                    echo "歡迎您!&nbsp";
+                    echo $_SESSION['login']['name'];
+                    ?>
                 <nav>
                     <?php
                     echo "<a href='admin_center.php?do=add'>新增學生</a>";
                     echo "<a href='admin_center.php?do=logout'>教師登出</a>";
                     ?>
                 </nav>
-            <?php
+                <?php
             } else {
             ?>
                 <nav>
@@ -25,9 +29,10 @@
                     echo "<a href='index.php?do=login'>教師登入</a>";
                     ?>
                 </nav>
-        <?php
+                <?php
             }
         }
+    }
         ?>
 
     </div>

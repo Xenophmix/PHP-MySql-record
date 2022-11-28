@@ -20,6 +20,8 @@ include "./db/base.php";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kumar+One+Outline&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,10 +37,10 @@ include "./db/base.php";
     <h1>學生管理系統</h1>
     <?php
 
-    $file = './back/'.$do.".php";
-    if(file_exists($file)){
+    $file = './back/' . $do . ".php";
+    if (file_exists($file)) {
         include $file;
-    }else{
+    } else {
         include "./back/main.php";
     }
 
