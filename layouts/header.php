@@ -1,7 +1,7 @@
-<header>
+<header class="mb-5">
     <div class="myHeader">
         <?php
-        if($do == 'add' || $do == 'edit'){
+        if($do == 'add' || $do == 'edit' || $do == 'add_news'){
             echo "<a href='admin_center.php'>回首頁</a>";
         }else{
 
@@ -15,6 +15,8 @@
                     ?>
                 <nav>
                     <?php
+                    echo "<a href='admin_center.php?do=news'>管理新聞</a>";
+                    echo "<a href='admin_center.php?do=students_list'>學生列表</a>";
                     echo "<a href='admin_center.php?do=add'>新增學生</a>";
                     echo "<a href='admin_center.php?do=logout'>教師登出</a>";
                     ?>
@@ -25,6 +27,7 @@
                 <nav>
                     <?php
                     echo "你沒有登入";
+                    echo "<a href='index.php?do=students_list'>學生列表</a>";
                     echo "<a href='index.php?do=reg'>教師註冊</a>";
                     echo "<a href='index.php?do=login'>教師登入</a>";
                     ?>

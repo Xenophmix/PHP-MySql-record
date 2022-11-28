@@ -14,9 +14,9 @@ echo "<br>";
 
 
 if (isset($_GET['code'])) {
-  $url = "location:../admin_center.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}&code={$_GET['code']}";
+  $url = "location:../admin_center.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}&code={$_GET['code']}&do=students_list";
 } else {
-  $url = "location:../admin_center.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}";
+  $url = "location:../admin_center.php?del=已成功刪除學生{$student['name']}的所有資料!!&page={$_GET['page']}&do=students_list";
 }
 // header($url);
 $res_class = $pdo->exec($sql_class);
