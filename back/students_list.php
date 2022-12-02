@@ -39,7 +39,7 @@ $now = (isset($_GET['page'])) ? $_GET['page'] : 1;
 $start = ($now - 1) * $div;
 $sql = $sql . " LIMIT $start,$div";
 ?>
-<div style="text-align: center;">總筆數為:<?= $total ?>，總頁數為:<?= $pages ?>，當前頁為:<?= $now ?></div>
+<div style="text-align: center;color:white;">總筆數為:<?= $total ?>，總頁數為:<?= $pages ?>，當前頁為:<?= $now ?></div>
 <?php
 
 
