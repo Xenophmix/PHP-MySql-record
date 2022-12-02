@@ -34,12 +34,12 @@ dd($row); */
 <h4>insert()-新增資料</h4>
 <?php
 
-insert('class_student', [
-  'school_num' => '911799',
-  'class_code' => '101',
-  'seat_num' => 51,
-  'year' => 2000
-])
+// insert('class_student', [
+//   'school_num' => '911799',
+//   'class_code' => '101',
+//   'seat_num' => 51,
+//   'year' => 2000
+// ])
 
 
 
@@ -51,10 +51,15 @@ insert('class_student', [
 //del('students',18);
 //del('students',21);
 
-echo del('students',['dept'=>4]);
+// echo del('students',['dept'=>4]);
 
 ?>
+<h3>q()-萬用自訂查詢函式</h3>
+<?php
+$result = q("SELECT COUNT(id) FROM `students` ");
+echo $result[0][0];
 
+?>
 <?php
 function dd($array)
 {
@@ -199,5 +204,10 @@ function del($table, $id)
 
   echo $sql;
   return $pdo->exec($sql);
+}
+
+function q($sql){
+  global $pdo;
+  return $pdo -> query($sql) -> fetchAll();
 }
 ?>
