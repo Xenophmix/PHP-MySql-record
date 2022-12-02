@@ -41,6 +41,18 @@ insert('class_student', [
   'year' => 2000
 ])
 
+
+
+?>
+
+<h3>del()-刪除資料</h3>
+<?php
+
+//del('students',18);
+//del('students',21);
+
+echo del('students',['dept'=>4]);
+
 ?>
 
 <?php
@@ -162,10 +174,30 @@ function insert($table, $cols)
   $keys = array_keys($cols);
   //dd(join("','",$cols));
 
-  $sql = "insert into $table (`" . join("`,`", $keys) . "`) values('" . join("','", $cols) . "')";
+  $sql = "insert into $table (`" . join("`,`", $keys) . "`) values ('" . join("','", $cols) . "')";
 
   echo $sql;
   return $pdo->exec($sql);
 }
 
+// 刪除資料
+function del($table, $id)
+{
+  global $pdo;
+  $sql = "delete from `$table` ";
+
+  if (is_array($id)) {
+    foreach ($id as $key => $value) {
+      $tmp[] = "`$key`='$value'";
+    }
+
+    $sql = $sql . " where " . join(" && ", $tmp);
+  } else {
+
+    $sql = $sql . " where `id`='$id'";
+  }
+
+  echo $sql;
+  return $pdo->exec($sql);
+}
 ?>
