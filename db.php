@@ -9,16 +9,41 @@ include_once "./db/base.php";
 //$rows=all('students',['dept'=>1,'graduate_at'=>1]," ORDER BY `id` desc");
 //dd($rows);
 //
+?>
+<h3>find()-存取指定條件的單筆資料</h3>
+<?php
+/* $row=find('students',100);
+dd($row);
+$row=find('students',['name'=>'林玟玲']);
+dd($row); */
+?>
 
-// $row = find('students', 100);
-// dd($row);
-// $row = find('students', ['name' => '林玟玲']);
-// dd($row);
+<h3>update()-更新指定條件的資料</h3>
+<?php
 
-update('students', ['name' => '廖凱鴻']);
+//update('students',['name'=>'廖凱鴻','dept'=>'2','graduate_at'=>'3']);
+//update('students',['name'=>'王大同','dept'=>'4'],['id'=>19]);
+//update students set name='王大同',dept='4' where id='19'
 
+//$num=update('class_student',['class_code'=>102],['class_code'=>101]);
+//echo "一供有".$num."筆資料更新成功";
 
+// update('class_student',['class_code'=>101],18);
+?>
 
+<h4>insert()-新增資料</h4>
+<?php
+
+insert('class_student', [
+  'school_num' => '911799',
+  'class_code' => '101',
+  'seat_num' => 51,
+  'year' => 2000
+])
+
+?>
+
+<?php
 function dd($array)
 {
   echo "<pre>";
@@ -100,15 +125,15 @@ function update($table, $col, ...$args)
     echo "錯誤，請提供以陣列形式的資料";
   }
 
-  if (isset($args[0])){
+  if (isset($args[0])) {
 
     if (isset($args[0])) {
       if (is_array($args[0])) {
-        $tmp=[];
+        $tmp = [];
         foreach ($args[0] as $key => $value) {
           $tmp[] = "`$key`='$value'";
         }
-  
+
         $sql = $sql . " WHERE " . join(" && ", $tmp);
       } else {
         //是字串
@@ -117,6 +142,27 @@ function update($table, $col, ...$args)
     }
   }
 
+
+  echo $sql;
+  return $pdo->exec($sql);
+}
+
+
+//新增資料
+/**
+ * ['school_num'=>'911799',
+ *  'class_code'=>'101',
+ *  'seat_num'=>51,
+ *  'year'=>2000]
+ */
+function insert($table, $cols)
+{
+  global $pdo;
+
+  $keys = array_keys($cols);
+  //dd(join("','",$cols));
+
+  $sql = "insert into $table (`" . join("`,`", $keys) . "`) values('" . join("','", $cols) . "')";
 
   echo $sql;
   return $pdo->exec($sql);
