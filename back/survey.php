@@ -23,7 +23,7 @@
       <div class="col-3 text-center">
         <a href="./api/survey_active.php?id=<?=$survey['id'];?>" class="btn btn-sm btn-secondary mx-1">啟用</a>
         <a href="admin_center.php?do=survey_edit&id=<?=$survey['id'];?>" class="btn btn-sm btn-success mx-1">編輯</a>
-        <a href="./api/survey_del.php?id=<?=$survey['id'];?>" class="btn btn-sm btn-info mx-1">刪除</a>
+        <a href="./api/survey_del.php?id=<?=$survey['id'];?>" class="btn btn-sm btn-info mx-1" onclick="return confirm('你確定要刪除 <?=$survey['subject'];?> 這個調查?')">刪除</a>
       </div>
     </li>
   <?php
