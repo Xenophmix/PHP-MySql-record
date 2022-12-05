@@ -21,8 +21,18 @@ foreach($_POST['opt_id'] as $idx => $id){
     echo "表單送過來的編輯後的選項 $id 資料=>".$_POST['opt'][$idx]."</div>";
     update('survey_options',['opt'=>$_POST['opt'][$idx]],$id);
 }
-
+// 編輯時如果有新增項目的時候
+if(isset($_POST['optn'])){
+    // dd($_POST['optn']);
+    foreach($_POST['optn'] as $option){
+        if($option!=''){
+            $tmp=['opt'=>$option,
+                  'subject_id'=>$_POST['subject_id'],
+                  'vote'=>0];
+            dd($tmp);
+            insert('survey_options',$tmp);
+        } 
+    }
+}
 
 header("location:../admin_center.php?do=survey");
-
-?>
