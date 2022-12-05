@@ -11,7 +11,7 @@ session_start();
 
 function dd($array)
 {
-  echo "<pre>";
+  echo "<pre class='text-white'>";
   print_r($array);
   echo "</pre>";
 }
