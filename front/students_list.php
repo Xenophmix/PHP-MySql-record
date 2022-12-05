@@ -52,12 +52,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   if (($now - 1) >= 1) {
     $prev = $now - 1;
     if (isset($_GET['code'])) {
-      echo "<a style='color:white;' href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
       echo "&lt; ";
       echo " </a>";
     } else {
 
-      echo "<a style='color:white;' href='?do=students_list&page=$prev'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$prev'> ";
       echo "&lt; ";
       echo " </a>";
     }
@@ -69,71 +69,73 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   <div>
     <?php
     //顯示第一頁
-    if ($now >= 4) {
+    if ($now > 4) {
       if (isset($_GET['code'])) {
-        echo "<a style='color:white;' href='?do=students_list&page=1&code={$_GET['code']}'> ";
+        echo "<a class='text-white' href='?do=students_list&page=1&code={$_GET['code']}'> ";
         echo "1 ";
         echo " </a>...";
       } else {
 
-        echo "<a style='color:white;' href='?do=students_list&page=1'> ";
+        echo "<a class='text-white' href='?do=students_list&page=1'> ";
         echo "1 ";
         echo " </a>...";
       }
     }
     ?>
     <?php
-    //頁碼區
-    //只顯示前後四個頁碼
-
-    if ($now >= 3 && $now <= ($pages - 2)) {  //判斷頁碼在>=3 及小於最後兩頁的狀況
+    // 頁碼區
+    // 只顯示前後四個頁碼
+    if ($now >= 3 && $now <= ($pages - 2)) {
       $startPage = $now - 2;
-    } else if ($now - 2 < 3) { //判斷頁碼在1,2頁的狀況
+    } else if ($now - 2 < 3) {
       $startPage = 1;
-    } else {  //判斷頁碼在最後兩頁的狀況
+    } else {
       $startPage = $pages - 4;
     }
 
-    for ($i = $startPage; $i <= ($startPage + 4); $i++) {
-      $nowPage = ($i == $now) ? 'now' : '';
-      if (isset($_GET['code'])) {
-        echo "<a style='color:white;' href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage'> ";
-        echo $i;
-        echo " </a>";
-      } else {
-        echo "<a style='color:white;' href='?do=students_list&page=$i' class='$nowPage'> ";
-        echo $i;
-        echo " </a>";
+
+    if ($pages < 5) {
+      for ($i = 1; $i <= $pages; $i++) {
+        $nowPage = ($i == $now) ? 'now' : '';
+        if (isset($_GET['code'])) {
+          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage text-white'> ";
+          echo $i;
+          echo " </a>";
+        } else {
+
+          echo "<a href='?do=students_list&page=$i' class='$nowPage text-white'> ";
+          echo $i;
+          echo " </a>";
+        }
+      }
+    } else {
+
+      for ($i = $startPage; $i <= ($startPage + 4); $i++) {
+        $nowPage = ($i == $now) ? 'now' : '';
+        if (isset($_GET['code'])) {
+          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage text-white'> ";
+          echo $i;
+          echo " </a>";
+        } else {
+
+          echo "<a href='?do=students_list&page=$i' class='$nowPage text-white'> ";
+          echo $i;
+          echo " </a>";
+        }
       }
     }
 
-
-    //全部頁碼顯示
-    /*     for($i=1;$i<=$pages;$i++){
-      $nowPage=($i==$now)?'now':'';
-      if(isset($_GET['code'])){
-          echo "<a href='?page=$i&code={$_GET['code']}' class='$nowPage'> ";
-          echo $i;
-          echo " </a>";
-          
-      }else{
-          
-          echo "<a href='?page=$i' class='$nowPage'> ";
-          echo $i;
-          echo " </a>";
-      }
-  } */
     ?>
     <?php
     //顯示第最後一頁
-    if ($now <= ($pages - 3)) {
+    if ($now < ($pages - 3)) {
       if (isset($_GET['code'])) {
-        echo "...<a style='color:white;' href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
+        echo "...<a class='text-white' href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
         echo "$pages";
         echo " </a>";
       } else {
 
-        echo "...<a style='color:white;' href='?do=students_list&page=$pages'> ";
+        echo "...<a class='text-white' href='?do=students_list&page=$pages'> ";
         echo "$pages";
         echo " </a>";
       }
@@ -146,12 +148,12 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   if (($now + 1) <= $pages) {
     $next = $now + 1;
     if (isset($_GET['code'])) {
-      echo "<a style='color:white;' href='?do=students_list&page=$next&code={$_GET['code']}'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$next&code={$_GET['code']}'> ";
       //echo "< ";
       echo "&gt; ";
       echo " </a>";
     } else {
-      echo "<a style='color:white;' href='?do=students_list&page=$next'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$next'> ";
       //echo " >";
       echo "&gt; ";
       echo " </a>";
@@ -191,11 +193,11 @@ $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 <?php
 if (isset($_GET['page']) && !isset($_GET['code']) || !isset($_GET['page']) && !isset($_GET['code'])) {
 ?>
-  <div class="BackHome1"><a href="<?= '?page=1' ?>">BACKALL</a></div>
+  <div class="BackHome1"><a href="<?= '?page=1' ?>&do=students_list">BACKALL</a></div>
 <?php
 } else {;
 ?>
-  <div class="BackHome2"><a href="<?= '?page=1' ?>">BACKALL</a></div>
+  <div class="BackHome2"><a href="<?= '?page=1' ?>&do=students_list">BACKALL</a></div>
 <?php
 };
 ?>

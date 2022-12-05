@@ -39,7 +39,7 @@ $now = (isset($_GET['page'])) ? $_GET['page'] : 1;
 $start = ($now - 1) * $div;
 $sql = $sql . " LIMIT $start,$div";
 ?>
-<div style="text-align: center;">總筆數為:<?= $total ?>，總頁數為:<?= $pages ?>，當前頁為:<?= $now ?></div>
+<div class='text-white text-center'>總筆數為:<?= $total ?>，總頁數為:<?= $pages ?>，當前頁為:<?= $now ?></div>
 <?php
 
 
@@ -82,12 +82,12 @@ if (isset($_GET['status'])) {
   if (($now - 1) >= 1) {
     $prev = $now - 1;
     if (isset($_GET['code'])) {
-      echo "<a href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$prev&code={$_GET['code']}'> ";
       echo "&lt ";
       echo " </a>";
     } else {
 
-      echo "<a href='?do=students_list&page=$prev'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$prev'> ";
       echo "&lt ";
       echo " </a>";
     }
@@ -100,12 +100,12 @@ if (isset($_GET['status'])) {
     //顯示第一頁
     if ($now > 4) {
       if (isset($_GET['code'])) {
-        echo "<a href='?do=students_list&page=1&code={$_GET['code']}'> ";
+        echo "<a class='text-white' href='?do=students_list&page=1&code={$_GET['code']}'> ";
         echo "1 ";
         echo " </a>...";
       } else {
 
-        echo "<a href='?do=students_list&page=1'> ";
+        echo "<a class='text-white' href='?do=students_list&page=1'> ";
         echo "1 ";
         echo " </a>...";
       }
@@ -114,7 +114,7 @@ if (isset($_GET['status'])) {
     <?php
     // 頁碼區
     // 只顯示前後四個頁碼
-    if ($now > 3 && $now <= ($pages - 2)) {
+    if ($now >= 3 && $now <= ($pages - 2)) {
       $startPage = $now - 2;
     } else if ($now - 2 < 3) {
       $startPage = 1;
@@ -127,12 +127,12 @@ if (isset($_GET['status'])) {
       for ($i = 1; $i <= $pages; $i++) {
         $nowPage = ($i == $now) ? 'now' : '';
         if (isset($_GET['code'])) {
-          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage'> ";
+          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage text-white'> ";
           echo $i;
           echo " </a>";
         } else {
 
-          echo "<a href='?do=students_list&page=$i' class='$nowPage'> ";
+          echo "<a href='?do=students_list&page=$i' class='$nowPage text-white'> ";
           echo $i;
           echo " </a>";
         }
@@ -142,12 +142,12 @@ if (isset($_GET['status'])) {
       for ($i = $startPage; $i <= ($startPage + 4); $i++) {
         $nowPage = ($i == $now) ? 'now' : '';
         if (isset($_GET['code'])) {
-          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage'> ";
+          echo "<a href='?do=students_list&page=$i&code={$_GET['code']}' class='$nowPage text-white'> ";
           echo $i;
           echo " </a>";
         } else {
 
-          echo "<a href='?do=students_list&page=$i' class='$nowPage'> ";
+          echo "<a href='?do=students_list&page=$i' class='$nowPage text-white'> ";
           echo $i;
           echo " </a>";
         }
@@ -159,12 +159,12 @@ if (isset($_GET['status'])) {
     //顯示最後一頁
     if ($now < ($pages - 3)) {
       if (isset($_GET['code'])) {
-        echo "...<a href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
+        echo "...<a class='text-white' href='?do=students_list&page=$pages&code={$_GET['code']}'> ";
         echo "$pages";
         echo " </a>";
       } else {
 
-        echo "...<a href='?do=students_list&page=$pages'> ";
+        echo "...<a class='text-white' href='?do=students_list&page=$pages'> ";
         echo "$pages";
         echo " </a>";
       }
@@ -177,12 +177,12 @@ if (isset($_GET['status'])) {
   if (($now + 1) <= $pages) {
     $next = $now + 1;
     if (isset($_GET['code'])) {
-      echo "<a href='?do=students_list&page=$next&code={$_GET['code']}'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$next&code={$_GET['code']}'> ";
       echo "&gt ";
       echo " </a>";
     } else {
 
-      echo "<a href='?do=students_list&page=$next'> ";
+      echo "<a class='text-white' href='?do=students_list&page=$next'> ";
       echo "&gt ";
       echo " </a>";
     }

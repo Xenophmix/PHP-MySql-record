@@ -23,7 +23,7 @@ foreach($rows as $row){
     echo "<div class='col-md-1 text-center'>";
     echo ($row['top']==1)?"TOP":"";
     echo "</div>";
-    echo "<div class='col-md-1'>";
+    echo "<div class='col-md-1 text-center'>";
     echo $row['readed'];
     echo "</div>";
     echo "<div class='col-md-2'>";
