@@ -24,6 +24,7 @@ if (isset($_GET['id'])) {
       </div>
       <div class="col-2">
         <button onclick="addOption()" class="btn btn-success" type="button">+</button>
+        <button onclick="removeOption()" class="btn btn-danger" type="button">-</button>
       </div>
     </div>
   </div>
@@ -44,7 +45,7 @@ if (isset($_GET['id'])) {
             <input type="hidden" class="form-control" name='opt_id[]' value="<?= $option['id']; ?>">
           </div>
           <div class="col-2">
-            <a href="./api/survey_option_del.php?id=<?= $option['id']; ?>" class="btn btn-danger">-</a>
+            <!-- <a href="./api/survey_option_del.php?id= <?= $option['id']; ?>" class="btn btn-danger">-</a> -->
           </div>
         </div>
       </div>
@@ -60,35 +61,44 @@ if (isset($_GET['id'])) {
 
 <script>
   function addOption() {
+    OptionAll = document.getElementsByClassName('option').length
+    if (OptionAll < 10) {
+
+      let options = document.getElementById('options');
+      let num = document.getElementsByClassName('option').length + 1
+      let container = document.createElement("div");
+      let row = document.createElement("div");
+      let col3 = document.createElement("div");
+      let col7 = document.createElement("div");
+      let col2 = document.createElement("div");
+      let label = document.createElement("lable");
+      let input = document.createElement('input');
+      let numNode = document.createTextNode("項目" + num);
+      container.setAttribute("class", "container");
+      row.setAttribute("class", "option row justify-content-center mt-2");
+      col3.setAttribute("class", "col-3 text-end");
+      col7.setAttribute("class", "col-7");
+      col2.setAttribute("class", "col-2");
+      label.setAttribute("class", "text-end text-white lh-lg");
+      input.setAttribute("class", "form-control");
+      input.setAttribute("name", "optn[]");
+      input.setAttribute("type", "text");
+
+      container.appendChild(row);
+      row.appendChild(col3);
+      col3.appendChild(label);
+      label.appendChild(numNode)
+      row.appendChild(col7);
+      col7.appendChild(input)
+      row.appendChild(col2);
+
+      options.appendChild(container);
+    }
+  }
+
+  function removeOption() {
+    // 移除myDiv裡面的最後一個(lastElementChild)節點
     let options = document.getElementById('options');
-    let num = document.getElementsByClassName('option').length + 1
-    let container = document.createElement("div");
-    let row = document.createElement("div");
-    let col3 = document.createElement("div");
-    let col7 = document.createElement("div");
-    let col2 = document.createElement("div");
-    let label = document.createElement("lable");
-    let input = document.createElement('input');
-    let numNode = document.createTextNode("項目" + num);
-    container.setAttribute("class", "container");
-    row.setAttribute("class", "option row justify-content-center mt-2");
-    col3.setAttribute("class", "col-3 text-end");
-    col7.setAttribute("class", "col-7");
-    col2.setAttribute("class", "col-2");
-    label.setAttribute("class", "text-end text-white lh-lg");
-    input.setAttribute("class", "form-control");
-    input.setAttribute("name", "optn[]");
-    input.setAttribute("type", "text");
-
-    container.appendChild(row);
-    row.appendChild(col3);
-    col3.appendChild(label);
-    label.appendChild(numNode)
-    row.appendChild(col7);
-    col7.appendChild(input)
-    row.appendChild(col2);
-
-    options.appendChild(container);
-
+    options.removeChild(options.lastElementChild);
   }
 </script>
