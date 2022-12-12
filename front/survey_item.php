@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
       ?>
         <div class="input-group mb-3">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" name="Multiple-choice" type="radio" aria-label="Checkbox for following text input" value="<?=$option['id'];?>">
+            <input class="form-check-input mt-0" name="Multiple-choice" type="radio" aria-label="Checkbox for following text input" value="<?=$option['id'];?>" required>
           </div>
           <div class="form-control"><?= $option['opt']; ?>
           </div>

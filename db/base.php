@@ -2,6 +2,8 @@
 //使用PDO方式建立資料庫連線物件
 $dsn = "mysql:host=localhost;charset=utf8;dbname=school";
 $pdo = new PDO($dsn, 'root', '');
+// $dsn = "mysql:host=localhost;charset=utf8;dbname=s1110410";
+// $pdo = new PDO($dsn, 's1110410', 's1110410');
 
 
 date_default_timezone_set("Asia/Taipei");
@@ -158,4 +160,9 @@ function q($sql){
   global $pdo;
   // echo $sql;
   return $pdo -> query($sql) -> fetchAll();
+}
+
+
+function to($location){
+  header("location:$location");
 }

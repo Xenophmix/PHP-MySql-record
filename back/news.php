@@ -32,7 +32,7 @@ foreach($rows as $row){
     
     echo "<div class='col-md-2 text-center'>";
     echo "<a class='btn btn-info mx-2' href='admin_center.php?do=news_edit&id={$row['id']}'>編輯</a>";
-    echo "<a class='btn btn-danger mx-2' href='../api/news_del.php?do=news_del&id={$row['id']}' onclick=\"return confirm('確定要刪除 {$row['subject']} 這則新聞嗎?');\">刪除</a>";
+    echo "<a class='btn btn-danger mx-2' href='./api/news_del.php?do=news_del&id={$row['id']}' onclick=\"return confirm('確定要刪除 {$row['subject']} 這則新聞嗎?');\">刪除</a>";
     echo "</div>";
     echo "</li>";
   }

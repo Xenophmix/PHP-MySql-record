@@ -5,9 +5,10 @@ $sql = "INSERT INTO `news`(`subject`,`content`,`type`)
         VALUES('{$_POST['subject']}',
                '{$_POST['content']}',
                '{$_POST['type']}')";
+echo $sql;
+
+// $pdo ->exec($sql);
 
 
-$pdo ->exec($sql);
 
-
-header("location:../admin_center.php?do=news");
+// header("location:../admin_center.php?do=news");

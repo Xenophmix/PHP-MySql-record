@@ -98,7 +98,7 @@
                     echo "</div>";
                     echo "<div>";
                     //<!-- <a href="?do=add">新增學生</a> -->
-                    echo "<a class='mx-2' href='logout.php'>教師登出</a>";
+                    echo "<a class='mx-2' href='./back/logout.php'>教師登出</a>";
                     echo "</div>";
                 break;
             }
